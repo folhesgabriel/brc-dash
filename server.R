@@ -10,17 +10,14 @@
 server <- function(input, output, session) {
   
   
-  ######## TABNAME pagina_2 ########
-  #Regularização Fundiária <br/> e equidade socioterritorial
-  
-  #ADICIONAR camadas de domicilios, pessoas censo 2022, domicilios vagos, densidade pop (domicios/pessoas/area)
+  #-- leaflet interactive map
   output$map_rural_credit <- renderLeaflet({
     
     leaflet() %>% 
       addTiles() %>%
-      addProviderTiles("OpenStreetMap", group = "Mapa Tradicional") %>%
-      addProviderTiles("CartoDB.Positron", group = "Mapa Branco") %>%
-      addProviderTiles("Esri.WorldImagery", group = "Imagem de Satélite") %>%
+      addProviderTiles("CartoDB.Positron", group = "CartoDB.Positron") %>%
+      addProviderTiles("OpenStreetMap", group = "OpenStreetMap") %>%
+      addProviderTiles("Esri.WorldImagery", group = "Esri.WorldImagery") %>%
       addPolygons(data= brazil_base_map,
                   weight = 3,
                   color = 'black',
@@ -52,18 +49,16 @@ server <- function(input, output, session) {
                 title = "Rural Credit Classes (R$)",
                 position = "bottomleft") %>% 
       addLayersControl(
-        baseGroups = c("Mapa Tradicional", "Mapa Branco", "Imagem de Satélite"),
+        baseGroups = c("CartoDB.Positron", "OpenStreetMap", "Esri.WorldImagery"),
         options = layersControlOptions(collapsed = FALSE),
         position = "topright"
       ) %>% 
       addMiniMap()
   })
 
-  #-- infomap_button página 2
+  #-- infomap_button
   output$infomap_button <- renderUI({
     actionButton('InfoMapButton', NULL, icon = icon('info'), style = 'border-radius: 50%;')
-    #tipify(bsTooltip("pB2", "?", style = "inverse", size = "extra-small"),
-    #       "Here, I can place some help"))
   })
   
 
