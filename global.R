@@ -15,14 +15,17 @@ library(bigrquery)
 library(geobr)
 library(scales)
 
+#Sys.setenv(GOOGLE_APPLICATION_CREDENTIALS = './credentials_dezoomcamp.json')
 
 ##### Import data from BigQuery #####
 #-- set vars
-credentials_path <- 'credentials_dezoomcamp.json'
+credentials_path <- './credentials_dezoomcamp.json'
 billing_project <- 'de-zoomcamp-2k24'
 
 #-- Set credentials path
-bigrquery::bq_auth(credentials_path)
+bigrquery::bq_auth(
+  #email='pisagabriel09@gmail.com',
+  path=credentials_path)
 
 #-- query
 query <- "WITH operacao as (

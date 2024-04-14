@@ -30,11 +30,15 @@ body <- dashboardBody(
         fluidPage(
           fluidRow(
             column(width = 12,
-                   HTML('<h2>Brazil Rural Credit   </h2>
-                      <h3> This dashboard is part of the Data Engineering 2024 course final project. </h3>
-                      <h3> It shows a map with the total nominal value of rural public credit loans per Brazilian municipallity
-                      during the 2022/2023 agricultural year built with data extracted from Brazilian Central Bank </h3>
-                     <br> </br>'),
+                   HTML('<h2 style="margin-bottom: 24px;">Brazil Rural Credit Dashboard</h2>
+    <p style="font-size: 20px;">This dashboard, a culmination of the Data Engineering 2024 courses final project, illustrates the total nominal value of rural public credit loans allocated to Brazilian municipalities throughout the 2022/2023 agricultural year, utilizing datasets from the Brazilian Central Bank.</p>
+    <p style="font-size: 20px;">For insight into the development process or to contribute, visit the repositories:</p>
+    <ul style="font-size: 20px;">
+      <li>The Shiny apps source code is available <a href="https://github.com/folhesgabriel/brc-dash" target="_blank">here</a>.</li>
+      <li>The data pipelines source code is accessible <a href="https://github.com/folhesgabriel/brazil-rural-credit" target="_blank">here</a>.</li>
+    </ul>
+    <p style="font-size: 18px;"><strong>Author:</strong> Gabriel P. Folhes</p>'),
+      br()
             ),
             br(),
           ),
